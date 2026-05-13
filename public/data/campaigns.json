@@ -1,0 +1,12 @@
+{
+  "naive_effect": 0.5733693353499877,
+  "did_effect": 0.28177402740658397,
+  "did_se": 0.019593166060142744,
+  "did_ci_low": 0.2433698029671721,
+  "did_ci_high": 0.32017825184599585,
+  "did_p_value": 1.160264400655006e-46,
+  "parallel_trends_p": 4.842902926165651e-27,
+  "n_treated": 4582,
+  "n_control": 5418,
+  "true_effect_oracle": 0.2
+}

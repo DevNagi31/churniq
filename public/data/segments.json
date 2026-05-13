@@ -1,0 +1,52 @@
+{
+  "segments": [
+    {
+      "segment": "Champions",
+      "n": 859,
+      "share": 0.17884655423693524,
+      "avg_recency_days": 58.32246798603027,
+      "avg_frequency": 3.038416763678696,
+      "avg_monetary": 383.7005587892899
+    },
+    {
+      "segment": "Loyal",
+      "n": 947,
+      "share": 0.19716843639392045,
+      "avg_recency_days": 215.818373812038,
+      "avg_frequency": 2.4551214361140445,
+      "avg_monetary": 285.07739176346354
+    },
+    {
+      "segment": "Potential Loyal",
+      "n": 533,
+      "share": 0.1109723089735582,
+      "avg_recency_days": 68.20825515947467,
+      "avg_frequency": 1.0,
+      "avg_monetary": 116.70086303939962
+    },
+    {
+      "segment": "At Risk",
+      "n": 512,
+      "share": 0.10660004164064127,
+      "avg_recency_days": 376.546875,
+      "avg_frequency": 1.119140625,
+      "avg_monetary": 128.23197265625
+    },
+    {
+      "segment": "Hibernating",
+      "n": 1285,
+      "share": 0.26754112013325004,
+      "avg_recency_days": 204.36731517509727,
+      "avg_frequency": 1.1431906614785992,
+      "avg_monetary": 147.02650583657586
+    },
+    {
+      "segment": "Lost",
+      "n": 667,
+      "share": 0.13887153862169477,
+      "avg_recency_days": 383.8230884557721,
+      "avg_frequency": 1.0,
+      "avg_monetary": 75.41353823088455
+    }
+  ]
+}

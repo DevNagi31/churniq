@@ -1,0 +1,140 @@
+{
+  "horizon_months": 12,
+  "holdout_mape": 0.5442787181639126,
+  "bgnbd_params": {
+    "r": 1.5652608499455372,
+    "alpha": 692.0156716158551,
+    "a": 5.968780092758598e-05,
+    "b": 0.013534401026006651
+  },
+  "percentiles": {
+    "p10": 81.76872905310549,
+    "p25": 97.96614541154318,
+    "p50": 115.35016161414228,
+    "p75": 134.07403600929075,
+    "p90": 159.8800176201942,
+    "p99": 324.8536103435358
+  },
+  "top_customers": [
+    {
+      "customer_id": "c_006336",
+      "predicted_clv": 737.7588069671083,
+      "frequency": 1,
+      "monetary_value": 811.71
+    },
+    {
+      "customer_id": "c_007662",
+      "predicted_clv": 702.0820478678736,
+      "frequency": 2,
+      "monetary_value": 502.925
+    },
+    {
+      "customer_id": "c_000001",
+      "predicted_clv": 623.1106745058578,
+      "frequency": 1,
+      "monetary_value": 724.31
+    },
+    {
+      "customer_id": "c_005938",
+      "predicted_clv": 541.6667728270418,
+      "frequency": 2,
+      "monetary_value": 336.205
+    },
+    {
+      "customer_id": "c_008619",
+      "predicted_clv": 537.1814628692036,
+      "frequency": 1,
+      "monetary_value": 680.9
+    },
+    {
+      "customer_id": "c_008988",
+      "predicted_clv": 515.3780869777936,
+      "frequency": 1,
+      "monetary_value": 518.59
+    },
+    {
+      "customer_id": "c_006008",
+      "predicted_clv": 492.33170402001355,
+      "frequency": 1,
+      "monetary_value": 510.84
+    },
+    {
+      "customer_id": "c_008509",
+      "predicted_clv": 451.7364985002338,
+      "frequency": 4,
+      "monetary_value": 169.895
+    },
+    {
+      "customer_id": "c_002995",
+      "predicted_clv": 438.99446262711245,
+      "frequency": 3,
+      "monetary_value": 210.1
+    },
+    {
+      "customer_id": "c_006233",
+      "predicted_clv": 434.23436882854793,
+      "frequency": 4,
+      "monetary_value": 215.60750000000002
+    },
+    {
+      "customer_id": "c_008958",
+      "predicted_clv": 423.6281080345153,
+      "frequency": 1,
+      "monetary_value": 487.5
+    },
+    {
+      "customer_id": "c_007975",
+      "predicted_clv": 422.82530598484396,
+      "frequency": 5,
+      "monetary_value": 158.63
+    },
+    {
+      "customer_id": "c_004178",
+      "predicted_clv": 421.25147734171696,
+      "frequency": 1,
+      "monetary_value": 421.01
+    },
+    {
+      "customer_id": "c_004554",
+      "predicted_clv": 416.64767972620547,
+      "frequency": 1,
+      "monetary_value": 476.38
+    },
+    {
+      "customer_id": "c_002678",
+      "predicted_clv": 411.21547096753915,
+      "frequency": 4,
+      "monetary_value": 169.8325
+    },
+    {
+      "customer_id": "c_003154",
+      "predicted_clv": 405.99999895598825,
+      "frequency": 4,
+      "monetary_value": 191.73000000000002
+    },
+    {
+      "customer_id": "c_006577",
+      "predicted_clv": 402.96089973834086,
+      "frequency": 6,
+      "monetary_value": 161.255
+    },
+    {
+      "customer_id": "c_005562",
+      "predicted_clv": 401.94445350589035,
+      "frequency": 3,
+      "monetary_value": 231.51333333333332
+    },
+    {
+      "customer_id": "c_009566",
+      "predicted_clv": 399.64131705723275,
+      "frequency": 1,
+      "monetary_value": 464.53
+    },
+    {
+      "customer_id": "c_007309",
+      "predicted_clv": 395.40956340798374,
+      "frequency": 1,
+      "monetary_value": 463.48
+    }
+  ]
+}

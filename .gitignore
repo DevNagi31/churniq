@@ -1,0 +1,24 @@
+# Python
+.venv/
+.venv*/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.vercel/
+
+# OS / editor
+.DS_Store
+*.log
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example

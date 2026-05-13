@@ -1,0 +1,192 @@
+{
+  "roc_auc": 0.5497582316371172,
+  "brier": 0.15281292271713767,
+  "calibration_curve": {
+    "mean_predicted": [
+      0.7155094902106187,
+      0.7765360867172121,
+      0.7957744606564336,
+      0.8053176415524155,
+      0.8173222185077996,
+      0.8226124387242751,
+      0.8242672010340245,
+      0.8353839161131776,
+      0.8431785783829845,
+      0.8665040895732011
+    ],
+    "fraction_positives": [
+      0.7410714285714286,
+      0.7524752475247525,
+      0.8301886792452831,
+      0.8055555555555556,
+      0.8355263157894737,
+      0.8174603174603174,
+      0.8717948717948718,
+      0.7711864406779662,
+      0.8762886597938144,
+      0.8349514563106796
+    ]
+  },
+  "at_risk": [
+    {
+      "customer_id": "c_001211",
+      "churn_probability": 1.0,
+      "n_orders": 1,
+      "total_spend": 330.56,
+      "days_since_last_order": 472,
+      "customer_state": "SC"
+    },
+    {
+      "customer_id": "c_004645",
+      "churn_probability": 1.0,
+      "n_orders": 1,
+      "total_spend": 319.13,
+      "days_since_last_order": 463,
+      "customer_state": "DF"
+    },
+    {
+      "customer_id": "c_008574",
+      "churn_probability": 1.0,
+      "n_orders": 1,
+      "total_spend": 339.25,
+      "days_since_last_order": 394,
+      "customer_state": "DF"
+    },
+    {
+      "customer_id": "c_008873",
+      "churn_probability": 1.0,
+      "n_orders": 1,
+      "total_spend": 323.84,
+      "days_since_last_order": 446,
+      "customer_state": "PR"
+    },
+    {
+      "customer_id": "c_005113",
+      "churn_probability": 0.9682539682539683,
+      "n_orders": 1,
+      "total_spend": 76.02,
+      "days_since_last_order": 557,
+      "customer_state": "ES"
+    },
+    {
+      "customer_id": "c_008672",
+      "churn_probability": 0.9682539682539683,
+      "n_orders": 1,
+      "total_spend": 332.2,
+      "days_since_last_order": 346,
+      "customer_state": "DF"
+    },
+    {
+      "customer_id": "c_006019",
+      "churn_probability": 0.9647559861939455,
+      "n_orders": 1,
+      "total_spend": 342.04,
+      "days_since_last_order": 365,
+      "customer_state": "ES"
+    },
+    {
+      "customer_id": "c_000925",
+      "churn_probability": 0.9520697167755992,
+      "n_orders": 1,
+      "total_spend": 343.15,
+      "days_since_last_order": 352,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_008561",
+      "churn_probability": 0.9468302658486708,
+      "n_orders": 1,
+      "total_spend": 315.13,
+      "days_since_last_order": 355,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_004868",
+      "churn_probability": 0.9250645994832042,
+      "n_orders": 1,
+      "total_spend": 24.91,
+      "days_since_last_order": 4,
+      "customer_state": "RJ"
+    },
+    {
+      "customer_id": "c_006344",
+      "churn_probability": 0.9250645994832042,
+      "n_orders": 1,
+      "total_spend": 72.75,
+      "days_since_last_order": 525,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_007826",
+      "churn_probability": 0.9250645994832042,
+      "n_orders": 2,
+      "total_spend": 84.78,
+      "days_since_last_order": 5,
+      "customer_state": "BA"
+    },
+    {
+      "customer_id": "c_009925",
+      "churn_probability": 0.9223278726085463,
+      "n_orders": 3,
+      "total_spend": 222.57999999999998,
+      "days_since_last_order": 139,
+      "customer_state": "DF"
+    },
+    {
+      "customer_id": "c_004529",
+      "churn_probability": 0.9178981937602627,
+      "n_orders": 1,
+      "total_spend": 317.84,
+      "days_since_last_order": 281,
+      "customer_state": "MG"
+    },
+    {
+      "customer_id": "c_006575",
+      "churn_probability": 0.9178981937602627,
+      "n_orders": 1,
+      "total_spend": 316.38,
+      "days_since_last_order": 279,
+      "customer_state": "MG"
+    },
+    {
+      "customer_id": "c_000046",
+      "churn_probability": 0.9175869581549095,
+      "n_orders": 1,
+      "total_spend": 60.27,
+      "days_since_last_order": 536,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_005412",
+      "churn_probability": 0.9175869581549095,
+      "n_orders": 1,
+      "total_spend": 58.2,
+      "days_since_last_order": 535,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_007889",
+      "churn_probability": 0.9175869581549095,
+      "n_orders": 1,
+      "total_spend": 60.58,
+      "days_since_last_order": 586,
+      "customer_state": "MG"
+    },
+    {
+      "customer_id": "c_008661",
+      "churn_probability": 0.9175869581549095,
+      "n_orders": 1,
+      "total_spend": 58.28,
+      "days_since_last_order": 521,
+      "customer_state": "SP"
+    },
+    {
+      "customer_id": "c_007058",
+      "churn_probability": 0.915084234102639,
+      "n_orders": 1,
+      "total_spend": 332.25,
+      "days_since_last_order": 180,
+      "customer_state": "MG"
+    }
+  ]
+}
