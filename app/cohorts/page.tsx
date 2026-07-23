@@ -11,7 +11,7 @@ export default async function CohortsPage() {
         <h1 className="text-[32px] font-semibold tracking-tightest text-ink-800">Cohort heatmap</h1>
         <p className="text-[13px] text-ink-400">
           Each row is a cohort of customers grouped by their first purchase month. Each column is
-          the percentage of that cohort active K months later. <strong>Right-censored cells are gray</strong> —
+          the percentage of that cohort active K months later. <strong>Right-censored cells are dimmed</strong>:
           a cohort that only formed 3 months ago cannot have a 12-month retention value yet.
         </p>
       </header>

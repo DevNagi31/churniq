@@ -1,27 +1,27 @@
-# ChurnIQ — Customer Lifecycle Analytics
+# ChurnIQ: Customer Lifecycle Analytics
 
-Cohort retention with right-censoring, RFM segmentation, BG/NBD + Gamma-Gamma predicted CLV, calibrated churn prediction, and **causal uplift analysis via Difference-in-Differences** — separates real campaign effects from selection bias on Olist-schema e-commerce data.
+Cohort retention with right-censoring, RFM segmentation, BG/NBD + Gamma-Gamma predicted CLV, calibrated churn prediction, and **causal uplift analysis via Difference-in-Differences**: separates real campaign effects from selection bias on Olist-schema e-commerce data.
 
 ![Campaign uplift: naive 0.573 vs DiD 0.282 vs oracle 0.200](docs/screenshots/06_campaigns.png)
 
-> The headline demo: a synthetic marketing campaign with a true effect of 0.200 orders/user. The naive treated-minus-untreated comparison says +0.573 (over by 186%, dominated by selection bias). DiD recovers 0.282 with a tight 95% CI — much closer to the truth.
+> The headline demo: a synthetic marketing campaign with a true effect of 0.200 orders/user. The naive treated-minus-untreated comparison says +0.573 (over by 186%, dominated by selection bias). DiD recovers 0.282 with a tight 95% CI, much closer to the truth.
 
 ## Screens
 
 | | |
 |---|---|
 | ![Overview](docs/screenshots/01_overview.png) | ![Cohorts](docs/screenshots/02_cohorts.png) |
-| **Overview** — KPI strip, predictive (CLV/churn) cards, causal uplift summary | **Cohort heatmap** — right-censored cells gray; no fake zeroes |
+| **Overview**: KPI strip, predictive (CLV/churn) cards, causal uplift summary | **Cohort heatmap**: right-censored cells dimmed; no fake zeroes |
 | ![Segments](docs/screenshots/03_segments.png) | ![CLV](docs/screenshots/04_clv.png) |
-| **RFM Segments** — 6 standard segments with R/F/M quintile averages | **CLV** — BG/NBD + Gamma-Gamma percentile distribution + top customers |
+| **RFM Segments**: 6 standard segments with R/F/M quintile averages | **CLV**: BG/NBD + Gamma-Gamma percentile distribution + top customers |
 | ![Churn](docs/screenshots/05_churn.png) | ![Campaigns](docs/screenshots/06_campaigns.png) |
-| **Churn** — calibrated GBM with reliability diagram + at-risk customer list | **Campaigns** — DiD vs naive with parallel-trends assumption check |
+| **Churn**: calibrated GBM with reliability diagram + at-risk customer list | **Campaigns**: DiD vs naive with parallel-trends assumption check |
 
 ## Why This Project
 
-- **Cohort + retention + CLV** is the holy trinity of e-commerce/SaaS data analysis — every B2C interview asks about it
+- **Cohort + retention + CLV** is the holy trinity of e-commerce/SaaS data analysis, every B2C interview asks about it
 - Adding **causal inference** (DiD with parallel-trends test) takes it from "decent project" to "this person actually understands selection bias"
-- Ships a **production-grade Next.js 15 + Framer Motion dashboard** with an Apple-themed design system — full-stack signal on top of the analytics
+- Ships a **production-grade Next.js 15 + Framer Motion dashboard** with a dark navy and teal design system, full-stack signal on top of the analytics
 - The synthetic data generator mirrors the Olist schema, so dropping in the real CSVs from Kaggle is a one-line change
 
 ## The Problem
@@ -32,13 +32,13 @@ Every B2C company asks the same four questions every quarter:
 3. Which customers are about to churn? (churn prediction)
 4. Did our last marketing campaign actually work? (causal uplift)
 
-Most analysts answer #1-3 with descriptive stats. Question #4 is where most fresher resumes go silent — because separating campaign effect from selection bias requires real causal inference, and that's what makes ChurnIQ stand out.
+Most analysts answer #1-3 with descriptive stats. Question #4 is where most fresher resumes go silent, because separating campaign effect from selection bias requires real causal inference, and that's what makes ChurnIQ stand out.
 
 ## What It Does
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│ ChurnIQ — Customer Health Dashboard                         │
+│ ChurnIQ, Customer Health Dashboard                         │
 │                                                              │
 │ 99,441 customers · 99,224 orders · R$ 16M GMV               │
 │                                                              │
@@ -75,14 +75,14 @@ Most analysts answer #1-3 with descriptive stats. Question #4 is where most fres
 
 ### Features
 
-- **Cohort retention curves** — monthly cohorts with rolling-window heatmap, handles sparse late-cohort data correctly
-- **RFM segmentation** — Recency / Frequency / Monetary scoring with auto-tuned breakpoints, mapped to 6 standard customer segments
-- **CLV prediction** — BG/NBD + Gamma-Gamma model from `lifetimes` lib, validated on a holdout period
-- **Churn classifier** — calibrated GBM with `sklearn`'s `CalibratedClassifierCV` (probabilities you can actually use, not just rankings)
-- **Causal uplift analysis** — Difference-in-Differences with parallel-trends test, optional synthetic control via `causalpy`
-- **RFM × CLV cross-tab** — find your "high-CLV-at-risk" customers (the people retention campaigns should target)
-- **Geographic insights** — state-level revenue + churn rate, from real Brazilian geolocation data
-- **Public REST API** — read-only access to all marts so other apps can consume
+- **Cohort retention curves**: monthly cohorts with rolling-window heatmap, handles sparse late-cohort data correctly
+- **RFM segmentation**: Recency / Frequency / Monetary scoring with auto-tuned breakpoints, mapped to 6 standard customer segments
+- **CLV prediction**: BG/NBD + Gamma-Gamma model from `lifetimes` lib, validated on a holdout period
+- **Churn classifier**: calibrated GBM with `sklearn`'s `CalibratedClassifierCV` (probabilities you can actually use, not just rankings)
+- **Causal uplift analysis**: Difference-in-Differences with parallel-trends test, optional synthetic control via `causalpy`
+- **RFM × CLV cross-tab**: find your "high-CLV-at-risk" customers (the people retention campaigns should target)
+- **Geographic insights**: state-level revenue + churn rate, from real Brazilian geolocation data
+- **Public REST API**: read-only access to all marts so other apps can consume
 
 ### Analytical Methods (What Sets This Apart)
 
@@ -91,9 +91,9 @@ Most analysts answer #1-3 with descriptive stats. Question #4 is where most fres
 | **BG/NBD + Gamma-Gamma** | Industry-standard CLV model; predicts both repeat-purchase probability and per-transaction value | `lifetimes` library + holdout validation |
 | **Calibrated probabilities** | Most churn models output rankings, not real probabilities. Calibration makes "20% churn risk" actually mean 20%. | `CalibratedClassifierCV` (isotonic) on top of GBM |
 | **Difference-in-Differences** | Separates campaign effect from time trend (the *only* defensible way to attribute uplift without randomization) | OLS with `treated × post` interaction term |
-| **Parallel-trends test** | Validates the DiD assumption — if pre-period trends differ, DiD estimate is biased | Pre-period regression with permutation test |
+| **Parallel-trends test** | Validates the DiD assumption, if pre-period trends differ, DiD estimate is biased | Pre-period regression with permutation test |
 | **Synthetic control** | When you don't have a clean control group, construct one from a weighted combination of untreated units | `causalpy` Bayesian synthetic control |
-| **Cohort rolling windows** | Late cohorts have less observation time — naive averaging biases retention curves | Right-censoring + only show cohort×month cells with full observation |
+| **Cohort rolling windows** | Late cohorts have less observation time, naive averaging biases retention curves | Right-censoring + only show cohort×month cells with full observation |
 
 ## Architecture
 
@@ -156,7 +156,7 @@ Most analysts answer #1-3 with descriptive stats. Question #4 is where most fres
 
 ```
 churniq/
-├── churniq/                          # Python package — analytics
+├── churniq/                          # Python package, analytics
 │   ├── data/
 │   │   └── synth.py                  # Olist-schema synthetic generator
 │   │                                 # (10K customers, ~8K orders, correlated
@@ -177,7 +177,7 @@ churniq/
 │   ├── churn/page.tsx                # Reliability diagram + at-risk list
 │   ├── campaigns/page.tsx            # DiD vs naive vs oracle
 │   └── layout.tsx
-├── components/                       # Apple-themed, Framer Motion everywhere
+├── components/                       # dark navy/teal theme, Framer Motion everywhere
 │   ├── nav.tsx, section.tsx, metric-card.tsx
 │   ├── retention-heatmap.tsx         # Animated cell-by-cell reveal
 │   ├── segment-bars.tsx              # Gradient bar with width animation
@@ -204,13 +204,13 @@ churniq/
 
 ## The Hard Parts (What Makes This Interview-Defensible)
 
-**1. Naive cohort retention is biased toward early cohorts.** A customer who joined 2 months ago can't have 12-month retention yet, but if you average across cohorts naively, the late cohorts pull short-window numbers down. ChurnIQ uses **right-censoring** — only show cohort×period cells where every cohort has at least that many months of observation. The heatmap visibly stops at the censoring boundary, which is the *correct* visualization (Mode/Looker get this wrong).
+**1. Naive cohort retention is biased toward early cohorts.** A customer who joined 2 months ago can't have 12-month retention yet, but if you average across cohorts naively, the late cohorts pull short-window numbers down. ChurnIQ uses **right-censoring**: only show cohort×period cells where every cohort has at least that many months of observation. The heatmap visibly stops at the censoring boundary, which is the *correct* visualization (Mode/Looker get this wrong).
 
-**2. CLV needs validation, not just prediction.** Most "I built a CLV model" projects don't validate. ChurnIQ trains BG/NBD on the first 18 months of Olist data, predicts each customer's expected purchases over the next 6 months, then checks against actual. MAPE is logged in `model_card.json`. If you can't validate, your CLV is fiction — and you should say so to stakeholders.
+**2. CLV needs validation, not just prediction.** Most "I built a CLV model" projects don't validate. ChurnIQ trains BG/NBD on the first 18 months of Olist data, predicts each customer's expected purchases over the next 6 months, then checks against actual. MAPE is logged in `model_card.json`. If you can't validate, your CLV is fiction, and you should say so to stakeholders.
 
-**3. Calibrated probabilities matter more than AUC.** A churn model with AUC 0.85 but uncalibrated probabilities tells you "this customer is *more likely* to churn than that one." A calibrated model tells you "this customer has a 23% chance of churning" — which means you can do expected-value calculations for retention spend. ChurnIQ uses `CalibratedClassifierCV(method='isotonic')` and ships a reliability diagram in the notebook to prove the probabilities are well-calibrated.
+**3. Calibrated probabilities matter more than AUC.** A churn model with AUC 0.85 but uncalibrated probabilities tells you "this customer is *more likely* to churn than that one." A calibrated model tells you "this customer has a 23% chance of churning", which means you can do expected-value calculations for retention spend. ChurnIQ uses `CalibratedClassifierCV(method='isotonic')` and ships a reliability diagram in the notebook to prove the probabilities are well-calibrated.
 
-**4. The naive uplift number is almost always wrong.** "Customers who got the email had 18% higher repeat-purchase rate" — that's selection bias (the marketing team targeted *engaged* customers). ChurnIQ implements **Difference-in-Differences**: compare the treated group's pre→post change to the control group's pre→post change. The interaction coefficient is the causal estimate. Plus a **parallel-trends test** — if pre-period trends already diverged, DiD is biased and the dashboard tells you. This single feature is what makes the project interview-gold for any B2C company.
+**4. The naive uplift number is almost always wrong.** "Customers who got the email had 18% higher repeat-purchase rate", that's selection bias (the marketing team targeted *engaged* customers). ChurnIQ implements **Difference-in-Differences**: compare the treated group's pre→post change to the control group's pre→post change. The interaction coefficient is the causal estimate. Plus a **parallel-trends test**: if pre-period trends already diverged, DiD is biased and the dashboard tells you. This single feature is what makes the project interview-gold for any B2C company.
 
 **5. Tested like production.** Synthetic data with known causal effect → DiD recovers it within tolerance (`test_did.py`). CLV predictions vs holdout truth (`test_clv.py`). Churn probability calibration error stays within bounds (`test_churn.py`). If a method can be tested on ground truth, ChurnIQ tests it.
 
@@ -234,8 +234,8 @@ npm run dev
 ```
 
 The Python pipeline runs end-to-end in ~30 seconds and produces six JSON
-files in `public/data/`. The Next.js dashboard reads those at request time —
-no Python required at serve time. Re-run `build_data.py` whenever the
+files in `public/data/`. The Next.js dashboard reads those at request time,
+so no Python is required at serve time. Re-run `build_data.py` whenever the
 upstream data changes.
 
 ## Sample Output (from the actual pipeline)
@@ -261,7 +261,7 @@ Campaign uplift summary:
   Naive comparison:    +0.573 orders/user   (biased: selection effect)
   DiD estimate:        +0.282 orders/user   95% CI [+0.243, +0.320], p<0.001
   Oracle (synthetic):  +0.200 orders/user   (ground truth)
-  → Naive over-estimates by 186%; DiD recovers ~1.4× the truth — a huge
+  → Naive over-estimates by 186%; DiD recovers ~1.4× the truth, a huge
     improvement over the headline number a typical fresher resume would report.
 ```
 
@@ -302,4 +302,4 @@ The job description for "Data Analyst, Customer Insights" or "Product Analyst, G
 - ✅ Modern data stack (dbt, DuckDB, Polars)
 - ✅ Building stakeholder-facing dashboards (Next.js + shadcn/ui = production-grade, not Streamlit demo)
 
-ChurnIQ ships all seven on real public data — the kind of work a junior DA at Stripe / Shopify / Notion would do in their first six months.
+ChurnIQ ships all seven on real public data, the kind of work a junior DA at Stripe / Shopify / Notion would do in their first six months.

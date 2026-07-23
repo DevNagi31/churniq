@@ -5,11 +5,11 @@ import type { SegmentRow } from '@/lib/data';
 import { fmtN, fmtPct } from '@/lib/format';
 
 const SEGMENT_ACCENT: Record<string, string> = {
-  Champions: 'from-accent to-violet-500',
-  Loyal: 'from-violet-500 to-purple-500',
-  'Potential Loyal': 'from-purple-500 to-fuchsia-500',
-  'At Risk': 'from-amber-500 to-orange-500',
-  Hibernating: 'from-orange-500 to-rose-500',
+  Champions: 'from-accent to-teal-500',
+  Loyal: 'from-teal-400 to-cyan-500',
+  'Potential Loyal': 'from-cyan-400 to-sky-500',
+  'At Risk': 'from-amber-400 to-orange-500',
+  Hibernating: 'from-orange-400 to-rose-500',
   Lost: 'from-rose-500 to-red-500',
 };
 
@@ -25,7 +25,7 @@ export function SegmentBars({ segments }: { segments: SegmentRow[] }) {
               {fmtN(s.n)} customers · {fmtPct(s.share)}
             </div>
           </div>
-          <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100">
+          <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${(s.share / max) * 100}%` }}

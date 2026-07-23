@@ -15,7 +15,7 @@ export default async function ChurnPage() {
         </h1>
         <p className="text-[13px] text-ink-400">
           GBM wrapped in <code className="bg-ink-100 px-1 rounded">CalibratedClassifierCV(isotonic)</code>
-          {' '}so the probabilities you read are real probabilities — not just rankings.
+          {' '}so the probabilities you read are real probabilities, not just rankings.
         </p>
       </header>
 
@@ -65,7 +65,7 @@ export default async function ChurnPage() {
                 <tr key={c.customer_id} className="border-t border-ink-100 text-[13px]">
                   <td className="px-4 py-2 font-mono text-ink-600">{c.customer_id}</td>
                   <td className="px-4 py-2 text-right font-mono">
-                    <span className="rounded-full bg-rose-50 px-2 py-0.5 text-rose-700">
+                    <span className="rounded-full bg-danger/15 px-2 py-0.5 text-danger">
                       {fmtPct(c.churn_probability)}
                     </span>
                   </td>

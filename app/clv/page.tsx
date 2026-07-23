@@ -22,22 +22,22 @@ export default async function ClvPage() {
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           <MetricCard
             label="Median CLV (p50)"
-            value={data.percentiles.p50 != null ? fmtCurrency(data.percentiles.p50) : '—'}
+            value={data.percentiles.p50 != null ? fmtCurrency(data.percentiles.p50) : 'N/A'}
           />
           <MetricCard
             label="Top 10% (p90)"
-            value={data.percentiles.p90 != null ? fmtCurrency(data.percentiles.p90) : '—'}
-            sub={`p99: ${data.percentiles.p99 != null ? fmtCurrency(data.percentiles.p99) : '—'}`}
+            value={data.percentiles.p90 != null ? fmtCurrency(data.percentiles.p90) : 'N/A'}
+            sub={`p99: ${data.percentiles.p99 != null ? fmtCurrency(data.percentiles.p99) : 'N/A'}`}
           />
           <MetricCard
             label="Holdout MAPE"
-            value={data.holdout_mape != null ? fmtPct(data.holdout_mape) : '—'}
+            value={data.holdout_mape != null ? fmtPct(data.holdout_mape) : 'N/A'}
             sub="lower = better-calibrated"
           />
           <MetricCard
             label="Horizon"
             value={`${data.horizon_months} mo`}
-            sub={`BG/NBD α=${data.bgnbd_params.alpha?.toFixed(2) ?? '—'}, r=${data.bgnbd_params.r?.toFixed(2) ?? '—'}`}
+            sub={`BG/NBD α=${data.bgnbd_params.alpha?.toFixed(2) ?? 'N/A'}, r=${data.bgnbd_params.r?.toFixed(2) ?? 'N/A'}`}
           />
         </div>
       </Section>
@@ -51,13 +51,13 @@ export default async function ClvPage() {
               return (
                 <div key={q} className="flex items-center gap-4">
                   <div className="w-12 font-mono text-ink-400">{q}</div>
-                  <div className="h-2 flex-1 rounded-full bg-ink-100">
+                  <div className="h-2 flex-1 rounded-full bg-white/[0.06]">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-accent to-violet-500"
+                      className="h-full rounded-full bg-gradient-to-r from-accent to-cyan-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <div className="w-24 text-right font-mono">{v != null ? fmtCurrency(v) : '—'}</div>
+                  <div className="w-24 text-right font-mono">{v != null ? fmtCurrency(v) : 'N/A'}</div>
                 </div>
               );
             })}

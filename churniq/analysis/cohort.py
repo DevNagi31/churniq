@@ -3,7 +3,7 @@
 Customers grouped by their first-purchase month form cohorts; for each cohort
 we measure what fraction had at least one purchase in month M+k. Late cohorts
 have less observation time than early ones, so we mark cells that haven't been
-fully observed yet as None — naive averaging without this biases the curve.
+fully observed yet as None, since naive averaging without this biases the curve.
 
 Returns a long-form DataFrame with columns:
     cohort_month, period_offset, n_active, n_cohort, retention, observed
@@ -23,7 +23,7 @@ def cohort_retention(orders: pd.DataFrame, *, as_of: pd.Timestamp | None = None)
     Returns:
         Long-form DataFrame with one row per (cohort_month, period_offset).
         `observed=False` rows are those where the cohort hasn't had enough
-        elapsed time to fully observe — display these as gray cells, not zeros.
+        elapsed time to fully observe, so display these as dimmed cells, not zeros.
     """
     if orders.empty:
         return pd.DataFrame(

@@ -3,30 +3,52 @@
 @tailwind utilities;
 
 @layer base {
-  html { -webkit-font-smoothing: antialiased; }
-  body { font-feature-settings: 'ss01', 'cv11'; }
-  h1, h2, h3 { letter-spacing: -0.022em; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    background: #0a1628;
+  }
+  body {
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: 'Sora', 'Inter', sans-serif;
+    letter-spacing: -0.022em;
+  }
 }
 
 @layer components {
+  /* Frosted panel on the dark base, used for KPI/hero cards. */
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-glass rounded-2xl;
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-glass backdrop-blur-xl;
+  }
+  /* Sub-panel inside the dashboard preview. */
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-surface-sunken/70;
   }
   .nav-blur {
-    @apply bg-white/70 backdrop-blur-2xl border-b border-ink-100;
+    @apply border-b border-white/[0.06] bg-[#0a1628]/70 backdrop-blur-2xl;
   }
   .card {
-    @apply bg-white border border-ink-100 shadow-soft rounded-2xl;
+    @apply rounded-2xl border border-white/[0.08] bg-surface shadow-soft;
+  }
+  .btn-primary {
+    @apply rounded-[10px] bg-gradient-to-br from-accent to-teal-500 px-6 py-3 text-[15px] font-semibold text-[#04141a] shadow-glow transition-transform hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply rounded-[10px] border border-accent/40 px-6 py-3 text-[15px] font-semibold text-accent transition-colors hover:bg-accent/10;
   }
 }
 
+/* Ambient background glow in teal and cyan, matching the landing inspiration. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(60% 50% at 15% 0%, rgba(0, 113, 227, 0.08), transparent 60%),
-    radial-gradient(50% 40% at 90% 10%, rgba(132, 0, 255, 0.06), transparent 60%);
+    radial-gradient(1200px 600px at 70% -5%, rgba(45, 212, 191, 0.1), transparent 60%),
+    radial-gradient(900px 500px at 10% 20%, rgba(56, 189, 248, 0.06), transparent 55%);
   pointer-events: none;
 }

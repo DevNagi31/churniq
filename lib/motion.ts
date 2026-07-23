@@ -1,5 +1,5 @@
-// Framer Motion presets — match the design Skill's rules.
-// Apple-standard expo-out easing on every transition.
+// Framer Motion presets that match the design Skill's rules.
+// Expo-out easing on every transition.
 export const easing = [0.16, 1, 0.3, 1] as const;
 
 export const fadeUp = {

@@ -2,7 +2,7 @@
 
 A churn model with AUC 0.85 but uncalibrated probabilities only tells you
 "this customer is *more likely* to churn than that one." A calibrated model
-tells you "this customer has a 23% chance of churning" — which means you can
+tells you "this customer has a 23% chance of churning", which means you can
 do expected-value calculations for retention spend.
 
 We wrap sklearn's GBM in `CalibratedClassifierCV(method='isotonic')`, train
@@ -27,7 +27,7 @@ class ChurnModel:
     roc_auc: float
     brier: float
     calibration_curve: tuple[np.ndarray, np.ndarray]
-    """(fraction_of_positives, mean_predicted_value) — input to a reliability diagram."""
+    """(fraction_of_positives, mean_predicted_value): input to a reliability diagram."""
 
     feature_names: list[str]
 

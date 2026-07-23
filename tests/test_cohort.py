@@ -30,7 +30,7 @@ def test_retention_drops_after_period_zero():
     """Per-period retention drops from 1.0 by period 1.
 
     Note: per-period retention (fraction of cohort active in month K) is NOT
-    strictly monotone — a customer inactive in month 2 but active in month 3
+    strictly monotone. A customer inactive in month 2 but active in month 3
     contributes to month-3 retention but not month-2. We assert the
     period-0 → period-1 drop, which is universal.
     """

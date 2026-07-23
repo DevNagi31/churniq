@@ -15,8 +15,8 @@ export default async function CampaignsPage() {
         </h1>
         <p className="text-[13px] text-ink-400">
           Marketing teams target engaged customers, so the naive "treated minus untreated" comparison
-          is dominated by selection bias. DiD compares the pre→post change for treated vs. untreated —
-          unbiased under the parallel-trends assumption.
+          is dominated by selection bias. DiD compares the pre→post change for treated vs. untreated,
+          which is unbiased under the parallel-trends assumption.
         </p>
       </header>
 
@@ -28,7 +28,7 @@ export default async function CampaignsPage() {
               {c.naive_effect.toFixed(3)}
             </div>
             <p className="mt-2 text-[12px] text-ink-400">
-              Mean orders/user: treated − untreated. Biased upward because treated customers were
+              Mean orders/user: treated minus untreated. Biased upward because treated customers were
               already buying more.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default async function CampaignsPage() {
           </div>
           <p className="mt-2 text-[12px] text-ink-400">
             The pre-period was split in two and the treated×early-half interaction was tested. A
-            small p-value here would mean trends diverged before treatment — in which case the DiD
+            small p-value here would mean trends diverged before treatment, in which case the DiD
             estimate is biased.
           </p>
         </div>

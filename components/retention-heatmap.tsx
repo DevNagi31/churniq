@@ -5,23 +5,19 @@ import { fmtRetention } from '@/lib/format';
 import { easing } from '@/lib/motion';
 
 function colorFor(v: number | null): string {
-  if (v == null) return 'bg-ink-100 text-ink-400';
-  // Heatmap: clamp to [0, 0.6] for visible range (retention rarely above 60%)
-  const clamped = Math.max(0, Math.min(0.6, v));
-  const intensity = clamped / 0.6;
-  // Blue → violet gradient via inline style for smooth interpolation
+  if (v == null) return 'bg-white/[0.03] text-ink-400';
   return '';
 }
 
 function styleFor(v: number | null): React.CSSProperties {
   if (v == null) return {};
-  const intensity = Math.max(0.05, Math.min(1, v / 0.6));
-  // Blend white → accent based on intensity
-  const r = Math.round(255 - (255 - 0) * intensity);
-  const g = Math.round(255 - (255 - 113) * intensity);
-  const b = Math.round(255 - (255 - 227) * intensity);
-  const textColor = intensity > 0.5 ? '#ffffff' : '#1d1d1f';
-  return { backgroundColor: `rgb(${r}, ${g}, ${b})`, color: textColor };
+  // Clamp to [0, 0.6] for a visible range (retention rarely exceeds 60%).
+  const intensity = Math.max(0.18, Math.min(1, v / 0.6));
+  // Perceptual ramp from deep navy → teal as retention climbs.
+  const l = 28 + intensity * 30; // lightness %
+  const c = 0.06 + intensity * 0.12; // chroma
+  const textColor = intensity > 0.55 ? '#04141a' : '#dff5ef';
+  return { backgroundColor: `oklch(${l}% ${c} 190)`, color: textColor };
 }
 
 export function RetentionHeatmap({ data }: { data: CohortsData }) {
@@ -75,11 +71,11 @@ export function RetentionHeatmap({ data }: { data: CohortsData }) {
       </table>
       <div className="mt-4 flex items-center gap-4 text-[11px] text-ink-400">
         <span className="inline-flex items-center gap-2">
-          <span className="inline-block h-3 w-3 rounded bg-ink-100" /> not yet observed
+          <span className="inline-block h-3 w-3 rounded bg-white/[0.06]" /> not yet observed
           (right-censored)
         </span>
         <span className="inline-flex items-center gap-2">
-          <span className="inline-block h-3 w-3 rounded" style={{ background: '#0071e3' }} /> high
+          <span className="inline-block h-3 w-3 rounded" style={{ background: 'oklch(52% 0.17 190)' }} /> high
           retention
         </span>
       </div>

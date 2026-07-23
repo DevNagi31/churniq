@@ -26,7 +26,7 @@ import statsmodels.formula.api as smf
 @dataclass
 class DidResult:
     naive_effect: float
-    """Mean(treated_post) - mean(untreated_post) — the biased number."""
+    """Mean(treated_post) minus mean(untreated_post): the biased number."""
 
     did_effect: float
     did_se: float
@@ -123,7 +123,7 @@ def _parallel_trends_p(orders: pd.DataFrame, exposures: pd.DataFrame) -> float:
     """Test the parallel-trends assumption by checking the pre-period sub-split.
 
     Splits the pre-period at its midpoint. If the treated×early_half interaction
-    is significant, the trends were NOT parallel before treatment — DiD is biased.
+    is significant, the trends were NOT parallel before treatment, so DiD is biased.
     """
     df = orders.merge(exposures, on="customer_id", how="left")
     pre = df[df["order_date"] < df["treatment_period_start"]].copy()
